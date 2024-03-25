@@ -22,3 +22,4 @@ account-blocklist:
 resource-types:
   excludes:
     - Budget
+    //updated the account details
