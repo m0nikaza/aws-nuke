@@ -10,11 +10,11 @@ accounts:
   "502484824417":
     filters:
       IAMUser:
-        - "FULLACCESS"
+        - "webiny-cli-dev"
       IAMUserPolicyAttachment:
-        - "FULLACCESS -> AdministratorAccess"
+        - "webiny-cli-dev -> AdministratorAccess"
       IAMUserAccessKey:
-        - "FULLACCESS -> AKIAXJ7TN6FQ4CAHLNTJ"
+        - "webiny-cli-dev -> AKIAXJ7TN6FQ4CAHLNTJ"
 
 account-blocklist:
   - "999999999999" # We don't have "production" accounts.
