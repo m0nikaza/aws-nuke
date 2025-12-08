@@ -17,16 +17,8 @@ jobs:
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-          - name: Pull aws-nuke image
-            run: docker pull ghcr.io/ekristen/aws-nuke:v3.61.0
-
-          - name: Run aws-nuke
-            run: |
-              docker run --rm \
-                -v ${{ github.workspace }}/nuke-config.yml:/config.yml \
-                ghcr.io/ekristen/aws-nuke:v3.61.0 \
-                --config /config.yml \
-                --force
+      - name: Pull aws-nuke image
+        run: docker pull ghcr.io/ekristen/aws-nuke:v3.61.0
 
       - name: Run AWS Nuke
         run: >
