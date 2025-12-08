@@ -22,7 +22,7 @@ jobs:
 
       - name: Run AWS Nuke
         run: >
-          aws-nuke
+          aws-nuke run
           --config ./.github/workflows/cleanup/aws-nuke-config.yml
           --no-dry-run
           --force
