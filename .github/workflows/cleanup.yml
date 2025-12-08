@@ -11,20 +11,11 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     container:
-      image: ekristen/aws-nuke
-      options: --user root -v ${{ github.workspace }}:/workspace
+      image: ghcr.io/ekristen/aws-nuke:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Pull aws-nuke image
-        run: docker pull ghcr.io/ekristen/aws-nuke:v3.62.0
-
-      - name: Run aws-nuke
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}/nuke-config:/root/.aws-nuke \
-            ghcr.io/ekristen/aws-nuke:v3.62.0 \
-            --config /root/.aws-nuke/config.yml \
-            --force
-
       - uses: actions/checkout@v3
 
       - name: Run AWS Nuke
